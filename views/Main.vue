@@ -4,7 +4,9 @@
             <Common-aside></Common-aside>
         </el-aside>
         <el-container>
-            <el-header>Header</el-header>
+            <el-header>
+              <CommonHeader></CommonHeader>
+            </el-header>
             <el-main>
                 <router-view></router-view>
             </el-main>
@@ -13,12 +15,14 @@
 </template>
 
 <script>
-    import CommonAside from '@/components/CommonAside'
+    import CommonAside from '@/components/CommonAside';
+    import CommonHeader from '@/components/CommonHeader';
 
     export default {
         name: "Main",
         components: {
-            CommonAside
+            CommonAside,
+          CommonHeader
         },
         data() {
             return {}
