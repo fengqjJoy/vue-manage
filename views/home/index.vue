@@ -41,6 +41,7 @@
 </template>
 
 <script>
+import {getData} from '../../api/data.js'
 export default {
   name: "home",
   data() {
@@ -130,16 +131,22 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('/user', {
-      params: {
-        ID: 12345
+    // this.$http.get('/user', {
+    //   params: {
+    //     ID: 12345
+    //   }
+    // }).then(function (response) {
+    //       console.log(response);
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    getData().then(res=>{
+      const {code,data}= res.data
+      if(code ===20000){
+        this.tableData=data.tableData
       }
-    }).then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    })
   }
 }
 </script>
