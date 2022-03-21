@@ -17,6 +17,18 @@ const routes = [
                 path: '/user',
                 name: 'user',
                 component: () => import('../views/user')
+            },{
+                path: '/mall',
+                name: 'mall',
+                component: () => import('../views/mall')
+            },{
+                path: '/pageOne',
+                name: 'pageOne',
+                component: () => import('../views/other/pageOne.vue')
+            },{
+                path: '/pageTwo',
+                name: 'pageTwo',
+                component: () => import('../views/other/pageTwo.vue')
             }
         ]
     }
