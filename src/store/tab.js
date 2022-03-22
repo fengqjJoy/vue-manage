@@ -3,7 +3,7 @@ export default {
         isCollapse: false,
         tabsList: [
             {
-                path: "/",
+                path: "/home",
                 name: 'home',
                 label: '首页',
                 icon: 'home'
@@ -21,7 +21,6 @@ export default {
                 //判断菜单是否存在啊
                 const result = state.tabsList.findIndex(item => item.name === val.name)
                 if (result === -1) {//如果不存在，增加
-                    debugger
                     state.tabsList.push(val)
                 }
             } else {
