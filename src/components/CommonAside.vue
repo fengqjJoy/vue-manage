@@ -1,7 +1,7 @@
 <template>
   <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
            :collapse="isCollapse" background-color="#545c64" text-color="#fff" active-text-color="#ffb04b">
-    <h3>{{isCollapse ? '后台' :'通用后台管理'}}</h3>
+    <h3>{{ isCollapse ? '后台' : '通用后台管理' }}</h3>
     <el-menu-item @click="clickMenu(item)" v-for="item in noChildren" :index="item.path+''" :key="item.path">
       <i :class="'el-icon-'+ item.icon"></i>
       <span slot="title">{{ item.label }}</span>
@@ -11,8 +11,8 @@
         <i :class="'el-icon-'+ item.icon"></i>
         <span slot="title">{{ item.label }}</span>
       </template>
-      <el-menu-item-group  v-for="(subItem,subIndex) in item.children" :key="subItem.path">
-        <el-menu-item  @click="clickMenu(subItem)" :index="subIndex+''">{{ subItem.label }}</el-menu-item>
+      <el-menu-item-group v-for="(subItem,subIndex) in item.children" :key="subItem.path">
+        <el-menu-item @click="clickMenu(subItem)" :index="subIndex+''">{{ subItem.label }}</el-menu-item>
       </el-menu-item-group>
     </el-submenu>
   </el-menu>
@@ -43,47 +43,47 @@ export default {
     return {
       // isCollapse: true, //菜单是否展开
       menu: [
-        {
-          path: '/',
-          name: 'home',
-          label: '首页',
-          icon: 's-home',
-          url: 'Home/Home'
-        },
-        {
-          path: '/mall',
-          name: 'mall',
-          label: '商品管理',
-          icon: 'video-play',
-          url: 'MallManage/MallManage'
-        },
-        {
-          path: '/user',
-          name: 'user',
-          label: '用户管理',
-          icon: 'user',
-          url: 'UserManage/UserManage '
-        },
-        {
-          label: '其他',
-          icon: 'location',
-          children: [
-            {
-              path: '/pageOne',
-              name: 'pageOne',
-              label: '页面1',
-              icon: 'setting',
-              url: 'other/pageOne'
-            },
-            {
-              path: '/pageTwo',
-              name: 'pageTwo',
-              label: '页面2',
-              icon: 'setting',
-              url: 'other/pageTwo'
-            }
-          ]
-        }
+        //   {
+        //     path: '/',
+        //     name: 'home',
+        //     label: '首页',
+        //     icon: 's-home',
+        //     url: 'Home/Home'
+        //   },
+        //   {
+        //     path: '/mall',
+        //     name: 'mall',
+        //     label: '商品管理',
+        //     icon: 'video-play',
+        //     url: 'MallManage/MallManage'
+        //   },
+        //   {
+        //     path: '/user',
+        //     name: 'user',
+        //     label: '用户管理',
+        //     icon: 'user',
+        //     url: 'UserManage/UserManage '
+        //   },
+        //   {
+        //     label: '其他',
+        //     icon: 'location',
+        //     children: [
+        //       {
+        //         path: '/pageOne',
+        //         name: 'pageOne',
+        //         label: '页面1',
+        //         icon: 'setting',
+        //         url: 'other/pageOne'
+        //       },
+        //       {
+        //         path: '/pageTwo',
+        //         name: 'pageTwo',
+        //         label: '页面2',
+        //         icon: 'setting',
+        //         url: 'other/pageTwo'
+        //       }
+        //     ]
+        //   }
       ]
     };
   },
@@ -98,17 +98,21 @@ export default {
       this.$router.push({
         name: item.name
       })
-      this.$store.commit("selectMenu",item)
+      this.$store.commit("selectMenu", item)
     }
   },
   computed: {
     noChildren() {
-      return this.menu.filter(item => !item.children)
+      // return this.menu.filter(item => !item.children)
+      return this.asyncMenu.filter(item => !item.children)
     },
     hasChildren() {
-      return this.menu.filter(item => item.children)
+      // return this.menu.filter(item => item.children)
+      return this.asyncMenu.filter(item => item.children)
     }, isCollapse() {
       return this.$store.state.tab.isCollapse;
+    },asyncMenu() {
+      return this.$store.state.tab.menu
     }
   }
 }

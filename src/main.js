@@ -25,9 +25,23 @@ Vue.use(ElementUI)
 
 Vue.prototype.$http=http
 
-
+// 导航守卫  判断是否登录，如果未登录则返回登录页
+router.beforeEach((to, from, next) => {
+  store.commit('getToken')
+  const token = store.state.user.token
+  if (!token && to.name !== 'login') {
+    next({name: 'login'})
+  }else if (token && to.name === 'login'){
+    next({name: 'home'})
+  }else {
+    next()
+  }
+})
 
 new Vue({
   router,store,
   render: h => h(App),
+  created() {
+    this.$store.commit('addMenu', router)//添加路由
+  }
 }).$mount('#app')

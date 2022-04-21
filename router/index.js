@@ -9,28 +9,33 @@ const routes = [
         name: 'Main',
         component: () => import('../views/Main'),
         children: [
-            {
-                path: '/home',
-                name: 'home',
-                component: () => import('../views/home')
-            }, {
-                path: '/user',
-                name: 'user',
-                component: () => import('../views/user')
-            },{
-                path: '/mall',
-                name: 'mall',
-                component: () => import('../views/mall')
-            },{
-                path: '/pageOne',
-                name: 'pageOne',
-                component: () => import('../views/other/pageOne.vue')
-            },{
-                path: '/pageTwo',
-                name: 'pageTwo',
-                component: () => import('../views/other/pageTwo.vue')
-            }
+            // {
+            //     path: '/home',
+            //     name: 'home',
+            //     component: () => import('../views/home')
+            // }, {
+            //     path: '/user',
+            //     name: 'user',
+            //     component: () => import('../views/user')
+            // }, {
+            //     path: '/mall',
+            //     name: 'mall',
+            //     component: () => import('../views/mall')
+            // }, {
+            //     path: '/pageOne',
+            //     name: 'pageOne',
+            //     component: () => import('../views/other/pageOne.vue')
+            // }, {
+            //     path: '/pageTwo',
+            //     name: 'pageTwo',
+            //     component: () => import('../views/other/pageTwo.vue')
+            // }
         ]
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('../views/login/login.vue')
     }
 ]
 

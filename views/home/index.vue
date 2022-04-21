@@ -51,6 +51,7 @@ import {getData} from '../../api/data.js'
 import * as echarts from 'echarts'
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "home",
   data() {
     return {
