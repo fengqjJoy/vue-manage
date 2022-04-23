@@ -14,24 +14,25 @@ export default {
               name: 'home',
               label: '首页',
               icon: 's-home',
-              url: 'home'
+              url: '/home/index'
             },
             {
               path: '/mall',
               name: 'mall',
               label: '商品管理',
               icon: 'video-play',
-              url: 'mall'
+              url: '/mall/index'
             },
             {
               path: '/user',
               name: 'user',
               label: '用户管理',
               icon: 'user',
-              url: 'User'
+              url: '/user/index'
             },
             {
               label: '其他',
+              name: 'other',
               icon: 'location',
               children: [
                 {
@@ -39,14 +40,14 @@ export default {
                   name: 'page1',
                   label: '页面1',
                   icon: 'setting',
-                  url: 'other/pageOne'
+                  url: '/other/pageOne'
                 },
                 {
                   path: '/page2',
                   name: 'page2',
                   label: '页面2',
                   icon: 'setting',
-                  url: 'other/pageTwo'
+                  url: '/other/pageTwo'
                 }
               ]
             }

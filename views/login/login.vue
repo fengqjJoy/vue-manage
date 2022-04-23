@@ -41,13 +41,12 @@ export default {
           this.$store.commit('clearMenu')
           this.$store.commit('setMenu',res.data.menu)
           this.$store.commit('setToken', res.data.token)
-          this.$store.commit('addMenu', this.$router)//添加路由
+          this.$store.commit('addMenu')//添加路由
           this.$router.push({name: 'home'})
         } else {
           this.$message.warning(res.data.message)
         }
       })
-
     }
   }
 }
