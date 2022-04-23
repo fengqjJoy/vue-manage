@@ -12,7 +12,7 @@
 
 1、	引入路由：npm i vue-router@3.2.0
 
-好像是修改了三个地方
+修改了三个地方
 1，把登录方法中传递router的参数给删除了，直接在tab.js通过import的方式来引用
 2，把permission.js中的菜单数据的url做了修改，使其符合路径的方式，动态添加路由肯定需要知道其路径，比如../../views/user/index，
 因为views目录不在src目录里，不可以使用@/views/user/index的方式，如果router目录在src目录下，在tab.js中引用router对象，可以直接写import router from '@/router';
